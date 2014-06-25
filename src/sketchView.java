@@ -1,3 +1,5 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -17,6 +19,7 @@ public class sketchView extends JFrame {
 	private JButton DrawButton = new JButton("Drawing");
 	private JButton EraseButton = new JButton("Eracing");
 	private JButton SelectButton = new JButton("Selecting");
+        private sketchControl sketchSpace = new sketchControl();
 	
 	private JSlider timeSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, 10);
 	
@@ -37,10 +40,19 @@ public class sketchView extends JFrame {
 	}
 	
 	private void initLayOut(){
-		myPanel.setLayout(new GridBagLayout());
-		myPanel.add(myToolBar, new GridBagConstraints( 0, 0, 1, 1, 1.0, 0.0,
-				GridBagConstraints.NORTHWEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
-		myPanel.add(timeSlider, new GridBagConstraints( 0, 2, 1, 1, 1.0, 0.0,
-				GridBagConstraints.NORTHWEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
+                sketchSpace.setPreferredSize(new Dimension(600, 1500));
+                sketchSpace.setBackground(Color.yellow);
+//		myPanel.setLayout(new GridBagLayout());
+                
+                this.add(myToolBar, BorderLayout.NORTH);
+                this.add(sketchSpace, BorderLayout.CENTER);
+                this.add(timeSlider, BorderLayout.SOUTH);
+
+//		myPanel.add(myToolBar, new GridBagConstraints( 0, 0, 1, 1, 1.0, 0.0,
+//				GridBagConstraints.NORTHWEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
+//                myPanel.add(sketchSpace, new GridBagConstraints( 0, 1, 1, 1, 1.0, 0.0,
+//				GridBagConstraints.NORTHWEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
+//		myPanel.add(timeSlider, new GridBagConstraints( 0, 2, 1, 1, 1.0, 0.0,
+//				GridBagConstraints.NORTHWEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
 	}
 }
